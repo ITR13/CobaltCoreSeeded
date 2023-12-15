@@ -9,6 +9,12 @@
     <ItemGroup>
       <PackageReference Include="Shockah.CobaltCoreModBuildConfig" Version="1.0.0" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="TextCopy">
+        <HintPath>G:\SteamLibrary\steamapps\common\Cobalt Core\TextCopy.dll</HintPath>
+      </Reference>
+    </ItemGroup>
     
     <PropertyGroup>
         <ModDeployModsPath>G:\SteamLibrary\steamapps\common\Cobalt Core\ModLibrary</ModDeployModsPath>

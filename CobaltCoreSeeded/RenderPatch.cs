@@ -3,6 +3,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xna.Framework.Input;
+using TextCopy;
 
 namespace CobaltCoreSeeded;
 
@@ -85,6 +86,25 @@ public static class RenderPatch
         {
             Main.Seed /= 10;
             if (Main.Seed == 0) Main.Seed = null;
+        }
+
+        if (Input.GetKeyHeld(Keys.LeftControl))
+        {
+            if (Input.GetKeyHeld(Keys.V))
+            {
+                var clipboardText = ClipboardService.GetText() ?? "";
+                if (uint.TryParse(clipboardText, out var newSeed))
+                {
+                    Main.Seed = newSeed;
+                    OnMouseDownPatch.SeedCurrentlyDown = true;
+                }
+            }
+
+            if (Main.Seed != null && Input.GetKeyHeld(Keys.C))
+            {
+                var clipboardText = Main.Seed.ToString() ?? "";
+                ClipboardService.SetText(clipboardText);
+            }
         }
 
         var active = OnMouseDownPatch.SeedCurrentlyDown;
