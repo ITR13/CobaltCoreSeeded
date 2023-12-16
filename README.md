@@ -36,6 +36,6 @@ The exported timings are conveniently stored in your save folder within a subfol
 
 ## Installation
 
-1. **Download the Mod:** Obtain the mod by unzipping "CobaltCoreSeeded.zip."
-2. **Place in ModLibrary Folder:** Move the extracted files into your ModLibrary folder.
+1. **Download the Mod:** Obtain the mod by unzipping [CobaltCoreSeeded.zip](https://github.com/ITR13/CobaltCoreSeeded/releases/download/1.1.0/CobaltCoreSeeded.zip)
+2. **Place in ModLibrary Folder:** Move the extracted folder into your ModLibrary folder.
 3. **Detailed Tutorial:** For a more in-depth installation guide, [click here](https://github.com/ITR13/CobaltCoreShipLoader/blob/main/how_to_install_modloader.md).
