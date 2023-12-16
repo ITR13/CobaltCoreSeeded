@@ -1,3 +1,5 @@
+﻿using CobaltCoreSeeded.MapRoutePatches;
+using CobaltCoreSeeded.ParticleBurstsPatches;
 using HarmonyLib;
 using Microsoft.Extensions.Logging;
 
@@ -8,6 +10,9 @@ public static class StartRunPatch
 {
     private static void Prefix(ref uint? seed)
     {
+        ShipExplosionPatch.Explosions.Clear();
+        OnClickDestinationPatch.Movements.Clear();
+
         if (Main.Seed == null) return;
         if (seed != null)
         {
