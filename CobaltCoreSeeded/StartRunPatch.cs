@@ -1,7 +1,7 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using Microsoft.Extensions.Logging;
 
-namespace CobaltCoreSeeded;
+namespace CobaltCoreSeeded.NewRunOptionsPatches;
 
 [HarmonyPatch(typeof(NewRunOptions), nameof(NewRunOptions.StartRun))]
 public static class StartRunPatch

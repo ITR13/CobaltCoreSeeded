@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Xna.Framework.Input;
 using TextCopy;
 
-namespace CobaltCoreSeeded;
+namespace CobaltCoreSeeded.NewRunOptionsPatches;
 
 [HarmonyPatch(typeof(NewRunOptions), nameof(NewRunOptions.Render))]
 public static class RenderPatch

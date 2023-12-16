@@ -1,10 +1,7 @@
-﻿using System.Reflection;
-using System.Reflection.Emit;
-using FSPRO;
+﻿using FSPRO;
 using HarmonyLib;
-using Microsoft.Extensions.Logging;
 
-namespace CobaltCoreSeeded;
+namespace CobaltCoreSeeded.NewRunOptionsPatches;
 
 [HarmonyPatch(typeof(NewRunOptions), nameof(NewRunOptions.OnMouseDown))]
 public static class OnMouseDownPatch
