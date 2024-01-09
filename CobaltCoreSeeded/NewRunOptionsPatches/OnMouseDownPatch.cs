@@ -10,7 +10,7 @@ public static class OnMouseDownPatch
 
     public static void Postfix(G g, Box b)
     {
-        if (b.key != Main.SEEDBOX_UK_VALUE) return;
+        if (b.key != Main.SeedboxUkValue) return;
         Audio.Play(Event.Click);
 
         if (SeedCurrentlyDown)

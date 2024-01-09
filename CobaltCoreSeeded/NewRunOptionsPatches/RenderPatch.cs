@@ -113,7 +113,7 @@ public static class RenderPatch
         SharedArt.ButtonText(
             _g,
             position,
-            Main.SEEDBOX_UK_VALUE,
+            Main.SeedboxUkValue,
             text,
             inactive: false,
             autoFocus: false,
