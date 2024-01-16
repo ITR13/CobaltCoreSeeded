@@ -8,12 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="TextCopy">
-        <HintPath>G:\SteamLibrary\steamapps\common\Cobalt Core\TextCopy.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Nickel.ModBuildConfig" Version="0.1.2" />
+      <PackageReference Include="Nickel.ModBuildConfig" Version="0.4.0-prerelease1" />
+        <Reference Include="TextCopy" Private="False" HintPath="$(ModLoaderPath)/../TextCopy.dll"/>
+        <Reference Include="TextCopy" Private="False" HintPath="$(ModLoaderPath)/../MonoGame.Framework.dll"/>
     </ItemGroup>
 </Project>

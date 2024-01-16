@@ -14,6 +14,7 @@ public class Main : Mod
     public Main(ILogger logger)
     {
         Log = ((level, s) => logger.Log(level, s));
+        Log(LogLevel.Information, "Loaded Seeded!");
         var harmony = new Harmony("com.itr.cobaltcore.seeded");
         harmony.PatchAll();
     }

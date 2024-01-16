@@ -14,6 +14,7 @@ public static class RenderPatch
     private static NewRunOptions? _instance;
     private static bool _gErroredOnce;
     private static MethodInfo _renderSeed = SymbolExtensions.GetMethodInfo(() => RenderSeed());
+    private static bool _holdingCopy, _holdingPaste;
 
     private static void Prefix(NewRunOptions __instance, G g)
     {
@@ -92,19 +93,43 @@ public static class RenderPatch
         {
             if (Input.GetKeyHeld(Keys.V))
             {
-                var clipboardText = ClipboardService.GetText() ?? "";
-                if (uint.TryParse(clipboardText, out var newSeed))
+                if (!_holdingPaste)
                 {
-                    Main.Seed = newSeed;
-                    OnMouseDownPatch.SeedCurrentlyDown = true;
+                    _holdingPaste = true;
+                    var clipboardText = ClipboardService.GetText() ?? "";
+                    if (uint.TryParse(clipboardText, out var newSeed))
+                    {
+                        Main.Seed = newSeed;
+                        OnMouseDownPatch.SeedCurrentlyDown = true;
+                    }
+
+                    Main.Log(LogLevel.Information, $"Pasted seed {clipboardText}");
                 }
+            }
+            else
+            {
+                _holdingPaste = false;
             }
 
             if (Main.Seed != null && Input.GetKeyHeld(Keys.C))
             {
-                var clipboardText = Main.Seed.ToString() ?? "";
-                ClipboardService.SetText(clipboardText);
+                if (!_holdingCopy)
+                {
+                    _holdingCopy = true;
+                    var clipboardText = Main.Seed.ToString() ?? "";
+                    ClipboardService.SetText(clipboardText);
+                    Main.Log(LogLevel.Information, $"Copied seed {clipboardText}");
+                }
             }
+            else
+            {
+                _holdingCopy = false;
+            }
+        }
+        else
+        {
+            _holdingCopy = false;
+            _holdingPaste = false;
         }
 
         var active = OnMouseDownPatch.SeedCurrentlyDown;
